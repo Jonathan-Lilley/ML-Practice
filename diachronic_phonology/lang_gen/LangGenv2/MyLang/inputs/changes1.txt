@@ -1,0 +1,12 @@
+j>0/r _
+j>0/ɬ _
+VOWL,-NASL>0/ _ NASL
+PLACE:a,MANNER:a,+VLSS>PLACE:a,MANNER:a,+VOID/+VOWL _ +VOWL
+y>0/e _
+e>0/y _
+u>i/ _ e
+ɑ>0/a _
+a>0/ɑ _
+ks>x/ _
+gz>ɣ/ _
+PLACE:a,MANNER:A,+NASL>PLACE:a,MANNER:a,+VOWL,-NASL/ _ +NASA +VOWL,-NASL

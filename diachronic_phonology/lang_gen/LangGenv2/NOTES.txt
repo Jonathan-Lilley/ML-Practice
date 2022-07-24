@@ -1,0 +1,6 @@
+- Implement vowel harmony with *-type symbol
+- Implement word boundaries in syllables with # symbol?
+- Implement syllable-level phonology
+- Implement stress
+
+- Problems with epenthesis
