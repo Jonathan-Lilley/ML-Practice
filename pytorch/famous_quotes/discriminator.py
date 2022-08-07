@@ -9,20 +9,20 @@ class Discriminator(nn.Module):
         self.input_layer = nn.Linear(input_size, hidden_size)
         self.hidden_layers = nn.ModuleList([nn.Linear(hidden_size, hidden_size)
                                             for ii in range(num_layers-2)])
-        self.output_layer = nn.Linear(hidden_size, 1)
-        self.hidden_activ = nn.Tanh()
+        self.output_layer = nn.Linear(hidden_size, 2)
+        self.hidden_activ = nn.Sigmoid()
         self.out_activ = nn.Sigmoid()
 
     def forward(self, inputs):
         o = inputs
-        o = self.input_layer(o)
-        o = self.hidden_activ(o)
+        o = self.input_layer(o.clone())
+        o = self.hidden_activ(o.clone())
         if any(self.hidden_layers):
             for layer in self.hidden_layers:
-                o = layer(o)
-                o = self.hidden_activ(o)
-        o = self.output_layer(o)
-        o = self.out_activ(o)
+                o = layer(o.clone())
+                o = self.hidden_activ(o.clone())
+        o = self.output_layer(o.clone())
+        o = self.out_activ(o.clone())
         return o
         
     

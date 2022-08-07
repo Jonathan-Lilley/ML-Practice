@@ -5,7 +5,7 @@ from torch import nn
 class Encoder(nn.Module):
     """RNN Encoder to encode quotes"""
     def __init__(self, input_size, hidden_size, output_size,
-                 num_layers=2, bidirectional=False):
+                 num_layers=1, bidirectional=False):
         super(Encoder, self).__init__()
 
         self.hidden_size = hidden_size
@@ -16,10 +16,10 @@ class Encoder(nn.Module):
         
     def forward(self, inputs, hiddens):
         o = inputs
-        o, hiddens = self.rnn(o, hiddens)
-        o = self.linear(o)
-        o = self.activation(o)
+        o, hiddens = self.rnn(o.clone(), hiddens)
+        o = self.linear(o.clone())
+        o = self.activation(o.clone())
         return o, hiddens
         
     def initialize_hidden(self):
-        return torch.ones(self.hidden_size)
+        return torch.ones(1, self.hidden_size)
